@@ -126,21 +126,34 @@ JOB REQUIREMENTS ANALYSIS:
 ---
 
 DECISION CRITERIA:
-- match_score >= 0.8 AND all critical skills present → "Proceed to interview"
-- match_score < 0.5 OR missing critical skills → "Reject"
-- match_score between 0.5-0.8 OR unclear fit → "Needs manual review"
+- match_score >= 0.75 AND experience level matches → "Proceed to interview"
+- match_score < 0.5 OR missing critical skills OR major experience gap → "Reject"
+- match_score between 0.5-0.75 AND experience within 1 level → "Needs manual review"
 
-Set requires_human to true if:
-- The match is borderline (score between 0.5-0.7)
-- There are unusual circumstances (career change, gaps, overqualified)
+CRITICAL EXPERIENCE LEVEL RULES (MUST FOLLOW):
+- Entry/Fresher applying for Mid-level (SDE 2, 2+ years required) → REJECT
+- Entry/Fresher applying for Senior (SDE 3, 5+ years required) → REJECT  
+- Mid-level applying for Senior/Lead (5+ years required) with <3 years → REJECT
+- Experience gap of 2+ levels is an AUTOMATIC REJECTION, not manual review
+
+Set requires_human to true ONLY if:
+- The match is borderline (score between 0.5-0.7) AND experience is close
+- Career change with transferable skills (needs evaluation)
 - Key information is missing from the resume
-- The confidence score is below 0.7
+- Overqualified candidates (might not accept offer)
 
 SCORING GUIDELINES:
-- Skills match: Weight technical skills heavily (50% of score)
-- Experience level: Must be within one level of requirement (25% of score)  
+- Experience level match: CRITICAL - wrong level = reject (30% of score)
+- Skills match: Technical skills alignment (40% of score)
 - Education: Consider if requirements are strict or flexible (15% of score)
-- Technologies: Specific tool match vs. transferable skills (10% of score)
+- Technologies: Specific tool match vs. transferable skills (15% of score)
+
+EXPERIENCE LEVEL MAPPING:
+- Fresher/Entry: 0-1 years
+- Junior/SDE 1: 1-2 years  
+- Mid/SDE 2: 2-4 years
+- Senior/SDE 3: 4-7 years
+- Lead/Staff: 7+ years
 
 Provide a balanced, fair assessment. Avoid bias based on formatting or writing style.
 Focus on qualifications and demonstrated abilities.
