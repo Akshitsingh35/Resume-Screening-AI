@@ -62,16 +62,12 @@ resume_screening_ai/
 ├── backend/                # FastAPI server
 │   └── api.py
 │
-├── frontend/               # React app
-│   ├── src/
-│   │   ├── App.jsx
-│   │   └── App.css
-│   ├── vite.config.js
-│   └── package.json
-│
-└── samples/                # Sample job descriptions
-    ├── job_description_sde.txt
-    └── job_description_senior.txt
+└── frontend/               # React app
+    ├── src/
+    │   ├── App.jsx
+    │   └── App.css
+    ├── vite.config.js
+    └── package.json
 ```
 
 ## 🚀 Quick Start
@@ -104,7 +100,7 @@ GROQ_API_KEY=your_groq_api_key_here
 
 ```bash
 # Basic usage
-python main.py --resume path/to/resume.pdf --jd samples/job_description_sde.txt
+python main.py --resume resume.pdf --jd job_description.txt
 
 # With inline job description
 python main.py --resume resume.pdf --jd-text "We need a Python developer with 3+ years..."
@@ -219,10 +215,16 @@ python main.py --resume resume.pdf --jd job.txt
 2. Create a new API key
 3. Add to `.env` as `GROQ_API_KEY`
 
+## 📚 Additional Documentation
+
+- **[DEVELOPMENT_NOTES.md](./DEVELOPMENT_NOTES.md)** - AI prompts used, manual vs AI-generated code breakdown, and future improvements roadmap
+
+---
+
 ## 📝 License
 
 MIT License - feel free to use for personal or commercial projects.
 
 ---
 
-Built with ❤️ using LangChain + LangGraph + Gemini
+*Built with LangChain + LangGraph + Google Gemini*
