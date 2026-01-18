@@ -1,0 +1,38 @@
+Software Development Engineer (SDE) - Entry Level / Fresher
+
+About the Role:
+We are looking for passionate Software Development Engineers to join our growing team. This is an excellent opportunity for fresh graduates or those with up to 2 years of experience to kickstart their career in software development.
+
+Required Qualifications:
+- Bachelor's degree in Computer Science, Information Technology, or related field (2024-2025 graduates welcome)
+- Strong foundation in Data Structures and Algorithms
+- Proficiency in at least one programming language: Python, Java, JavaScript, or C++
+- Understanding of Object-Oriented Programming concepts
+- Good problem-solving and analytical skills
+- Excellent communication skills
+
+Preferred Skills:
+- Experience with web development (HTML, CSS, JavaScript)
+- Familiarity with React, Node.js, or similar frameworks
+- Knowledge of SQL and database concepts
+- Experience with Git version control
+- Personal projects or internship experience
+- Contributions to open-source projects
+
+What You'll Do:
+- Write clean, maintainable, and efficient code
+- Participate in code reviews and design discussions
+- Collaborate with cross-functional teams
+- Learn and adapt to new technologies quickly
+- Debug and troubleshoot software issues
+
+Benefits:
+- Competitive salary with performance bonuses
+- Health insurance and wellness programs
+- Learning and development opportunities
+- Flexible work arrangements
+- Inclusive and collaborative work environment
+
+Location: Bangalore / Remote
+Job Type: Full-time
+Experience: 0-2 years
