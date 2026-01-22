@@ -181,7 +181,7 @@ async def screen_resume_text(
 
 
 # =============================================================================
-# Run with: uvicorn webapp.api:app --reload --port 8000
+# Run with: uvicorn backend.api:app --reload --port 8000
 # =============================================================================
 
 if __name__ == "__main__":

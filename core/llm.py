@@ -6,7 +6,7 @@ Supports: Google Gemini (primary) → Groq (fallback) → Manual Review
 import os
 import time
 from pathlib import Path
-from typing import Optional, Union
+from typing import Optional, Union, Any, TYPE_CHECKING
 
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -17,7 +17,7 @@ try:
     GROQ_AVAILABLE = True
 except ImportError:
     GROQ_AVAILABLE = False
-    ChatGroq = None
+    ChatGroq = None  # type: ignore
 
 
 def load_environment() -> None:
@@ -119,10 +119,10 @@ class GroqProvider(LLMProvider):
         if not api_key:
             raise ValueError("GROQ_API_KEY not set")
         
-        return ChatGroq(
+        return ChatGroq(  # type: ignore[misc]
             model=self.MODEL,
             temperature=temperature,
-            api_key=api_key,
+            api_key=api_key,  # type: ignore[arg-type]
         )
 
 
@@ -253,7 +253,7 @@ def get_llm(
     model: str = "gemini-2.5-flash",
     temperature: float = 0.1,
     provider: str = "gemini"
-) -> Union[ChatGoogleGenerativeAI, "ChatGroq"]:
+) -> Any:
     """
     Get an LLM instance from the specified provider.
     
@@ -279,10 +279,10 @@ def get_llm(
                 "Get your key from: https://console.groq.com/keys"
             )
         
-        return ChatGroq(
+        return ChatGroq(  # type: ignore[misc]
             model=model,
             temperature=temperature,
-            groq_api_key=api_key,
+            api_key=api_key,  # type: ignore[arg-type]
         )
     else:
         # Default: Gemini

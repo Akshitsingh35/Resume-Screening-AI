@@ -7,7 +7,7 @@ Architecture: START -> resume_analyzer -> jd_analyzer -> matching_agent -> END
 
 import json
 import time
-from typing import TypedDict, List
+from typing import TypedDict, List, Any
 
 from langgraph.graph import StateGraph, START, END
 
@@ -219,7 +219,7 @@ def matching_agent_node(state: ResumeScreeningState) -> ResumeScreeningState:
 
 
 
-def build_resume_screening_graph() -> StateGraph:
+def build_resume_screening_graph() -> Any:
     """
     Build the LangGraph StateGraph for resume screening.
     

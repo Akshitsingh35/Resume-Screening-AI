@@ -75,11 +75,16 @@ JOB DESCRIPTION:
 
 INSTRUCTIONS:
 1. Identify all required and preferred skills (technical and soft)
-2. Determine the experience level required (entry, mid, senior, etc.)
+2. Determine the experience level required - ONLY if explicitly stated
+   - Look for phrases like "X+ years", "X years of experience", "Senior", "Junior", "Entry-level"
+   - If NO experience is mentioned, set experience_level to "Not specified - Open to all levels"
+   - Do NOT assume or infer experience requirements that are not written
 3. Identify the role type and employment details
 4. List specific technologies and tools required
 5. Note educational requirements
 6. Extract key responsibilities of the role
+
+IMPORTANT: Do NOT hallucinate experience requirements. If the JD does not explicitly state years of experience or level (Junior/Mid/Senior), mark it as "Not specified".
 
 Be precise in distinguishing between "required" and "preferred" qualifications. Include both in the skills list but focus on requirements.
 
@@ -131,10 +136,12 @@ DECISION CRITERIA:
 - match_score between 0.5-0.75 AND experience within 1 level → "Needs manual review"
 
 CRITICAL EXPERIENCE LEVEL RULES (MUST FOLLOW):
-- Entry/Fresher applying for Mid-level (SDE 2, 2+ years required) → REJECT
-- Entry/Fresher applying for Senior (SDE 3, 5+ years required) → REJECT  
-- Mid-level applying for Senior/Lead (5+ years required) with <3 years → REJECT
+- If experience_level is "Not specified" or "Open to all levels" → DO NOT reject based on experience
+- Entry/Fresher applying for Mid-level (SDE 2, 2+ years EXPLICITLY required) → REJECT
+- Entry/Fresher applying for Senior (SDE 3, 5+ years EXPLICITLY required) → REJECT  
+- Mid-level applying for Senior/Lead (5+ years EXPLICITLY required) with <3 years → REJECT
 - Experience gap of 2+ levels is an AUTOMATIC REJECTION, not manual review
+- ONLY apply experience rules if the JD EXPLICITLY states experience requirements
 
 Set requires_human to true ONLY if:
 - The match is borderline (score between 0.5-0.7) AND experience is close

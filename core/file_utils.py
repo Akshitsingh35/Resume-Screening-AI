@@ -327,7 +327,7 @@ TEXT:
 CLEANED TEXT:"""
         
         response = llm.invoke(prompt)
-        cleaned = response.content.strip()
+        cleaned = str(response.content).strip()
         
         if cleaned and len(cleaned) > len(raw_text) * 0.5:
             return cleaned
@@ -435,7 +435,7 @@ def extract_text_with_ai(file_path: str, max_retries: int = 2) -> str:
                 
                 # Invoke the LLM with the file
                 response = llm.invoke([message])
-                extracted_text = response.content.strip()
+                extracted_text = str(response.content).strip()
                 
                 if not extracted_text:
                     raise ExtractionError("No text could be extracted from the document")
