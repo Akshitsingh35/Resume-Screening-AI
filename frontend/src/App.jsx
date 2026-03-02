@@ -99,6 +99,12 @@ function App() {
       {/* Animated Background */}
       <div className="bg-gradient" />
       <div className="bg-grid" />
+      <div className="orb orb-1" />
+      <div className="orb orb-2" />
+      <div className="orb orb-3" />
+      <div className="bg-beam beam-1" />
+      <div className="bg-beam beam-2" />
+      <div className="bg-noise" />
       
       {/* Header */}
       <motion.header 
@@ -133,6 +139,44 @@ function App() {
             AI-Powered Resume Screening
           </h1>
           <p>Upload a resume and job description to get instant AI analysis with match scores, recommendations, and detailed reasoning.</p>
+        </motion.div>
+
+        {/* Agent Pipeline Visualization */}
+        <motion.div 
+          className="pipeline"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+        >
+          {[
+            { id: 1, label: 'File Parser', desc: 'Extracts raw text from your resume', icon: Upload },
+            { id: 2, label: 'Resume Analyzer', desc: 'Understands your skills & experience', icon: FileText },
+            { id: 3, label: 'JD Analyzer', desc: 'Reads the job requirements', icon: Briefcase },
+            { id: 4, label: 'Matching Agent', desc: 'Scores and explains the fit', icon: Target }
+          ].map((step, index) => {
+            const Icon = step.icon
+            const isActive = isLoading || !!result
+            const isCompleted = !!result
+            return (
+              <motion.div
+                key={step.id}
+                className={`pipeline-step ${isCompleted ? 'completed' : isActive ? 'active' : ''}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 * (index + 1) }}
+              >
+                <div className="pipeline-icon-wrap">
+                  <Icon className="pipeline-icon" />
+                  <span className="pipeline-step-number">{step.id}</span>
+                </div>
+                <div className="pipeline-text">
+                  <span className="pipeline-label">{step.label}</span>
+                  <span className="pipeline-desc">{step.desc}</span>
+                </div>
+                <div className="pipeline-status-dot" />
+              </motion.div>
+            )
+          })}
         </motion.div>
 
         {/* Main Grid */}
