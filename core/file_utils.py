@@ -307,7 +307,7 @@ def clean_text_with_groq(raw_text: str) -> str:
         Cleaned text (or original if Groq fails)
     """
     try:
-        from llm import get_llm
+        from .llm import get_llm
         
         # Try Groq for text cleaning
         groq_api_key = os.getenv("GROQ_API_KEY")
